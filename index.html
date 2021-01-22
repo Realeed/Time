@@ -1,1 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const tab = document.querySelector('#tab');
+                const form = document.querySelector('form');
+                const set = document.querySelector('#set');
+                set.style.cursor = 'default';
+                set.disabled = true;
+                let hour = document.querySelector('#hour').innerHTML;
+                let minute = document.querySelector('#minute').innerHTML;
+                let second = document.querySelector('#second').innerHTML;
+                let text = document.querySelector('p').innerHTML
+                const shour = document.querySelector('#shour');
+                const sminute = document.querySelector('#sminute');
+                const ssecond = document.querySelector('#ssecond');
+            
+                shour.onkeyup = function() {
+                    if (shour.value.length > 0 || sminute.value.length > 0 || ssecond.value.length > 0) {
+                        set.disabled = false;
+                        set.style.cursor = 'pointer';
+                    } else {
+                        set.disabled = true;
+                        set.style.cursor = 'default';
+                    }
+                }
+                sminute.onkeyup = function() {
+                    if (shour.value.length > 0 || sminute.value.length > 0 || ssecond.value.length > 0) {
+                        set.disabled = false;
+                        set.style.cursor = 'pointer';
+                    } else {
+                        set.disabled = true;
+                        set.style.cursor = 'default';
+                    }
+                }
+                ssecond.onkeyup = function() {
+                    if (shour.value.length > 0 || sminute.value.length > 0 || ssecond.value.length > 0) {
+                        set.disabled = false;
+                        set.style.cursor = 'pointer';
+                    } else {
+                        set.disabled = true;
+                        set.style.cursor = 'default';
+                    }
+                }
+            
+                form.onsubmit = function() {
+                    hour = shour.value;
+                    document.querySelector('#hour').innerHTML = hour;
+                    minute = sminute.value;
+                    document.querySelector('#minute').innerHTML = minute;
+                    second = ssecond.value;
+                    document.querySelector('#second').innerHTML = second;
+                    if (shour.value > 9) {
+                        document.querySelector('#st').innerHTML = '';
+                    }
+                    if (sminute.value > 9) {
+                        document.querySelector('#nd').innerHTML = ':';
+                    }
+                    if (ssecond.value > 9) {
+                        document.querySelector('#rd').innerHTML = ':';
+                    }
+                    if (shour.value.length === 0) {
+                        hour = '0';
+                        document.querySelector('#hour').innerHTML = hour;
+                    }
+                    if (sminute.value.length === 0) {
+                        minute = '0';
+                        document.querySelector('#minute').innerHTML = minute;
+                    }
+                    if (ssecond.value.length === 0) {
+                        second = '0';
+                        document.querySelector('#second').innerHTML = second;
+                    }
+                    if (shour.value && sminute.value && ssecond.value === '0') {
+                        set.disabled = true;
+                    }
+            
+            
+                    shour.value = '';
+                    sminute.value = '';
+                    ssecond.value = '';
+                    set.disabled = true;
+                    form.innerHTML = '';
+                    tab.style.marginTop = '30%';
+                    
+            
+            
+                    function countdownh() {
+                        if (hour > 0 && minute == 0 && second == 0) {
+                        hour--;
+                        document.querySelector('#hour').innerHTML = hour;
+                        } 
+                        if (hour > 9) {
+                            document.querySelector('#st').innerHTML = '';
+                        } else {
+                            document.querySelector('#st').innerHTML = '0';
+                        }
+                    }
+                    setInterval(countdownh, 1000)
+                    
+            
+                    function countdownm() {
+            
+                        if (minute > -1 && second === 0) {
+                            minute--;
+                            document.querySelector('#minute').innerHTML = minute;
+                        }
+                        if (minute <= -1 && hour >= 0) {
+                            minute = 59;
+                            document.querySelector('#minute').innerHTML = minute
+                        }
+            
+                        
+                        if (minute > 9) {
+                            document.querySelector('#nd').innerHTML = ':';
+                        } else {
+                            document.querySelector('#nd').innerHTML = ':0';
+                        }
+                        
+                    }
+                    let mino = setInterval(countdownm, 1000)
+                    
+            
+                    function countdowns() {
+                        if (second > -1) {
+                        second--;
+                        document.querySelector('#second').innerHTML = second;
+                        }
+                        if (minute >= 0 && second == -1) {
+                            second = 59;
+                            document.querySelector('#second').innerHTML = second;
+                        }
+                        if (hour >= 0 && second == -1) {
+                            second = 59;
+                            document.querySelector('#second').innerHTML = second;
+                        }
+                    
+                        if (second > 9) {
+                            document.querySelector('#rd').innerHTML = ':';
+                        } else {
+                            document.querySelector('#rd').innerHTML = ':0';
+                        }
+                    }
+                        
+                    
+                    let j = setInterval(countdowns, 1000) ;
+                    function seco() {
+                        if (minute <= 0 && hour <= 0 && second === 0) {
+                            clearInterval(j)
+                            clearInterval(mino)
+                        }
+            
+                    }
+                    setInterval(seco, 1000)
+            
+                    function up() {
+                        if (hour <= 0 && minute <= 0 && second <= 0) {
+                            text = 'TIME IS UP!';
+                            document.querySelector('p').innerHTML = text;
+                            document.querySelector('p').style.color = 'red';
+                            document.querySelector('p').style.fontSize = '50%';
+                            tab.style.marginTop = '0px'
+                            let btn = document.createElement('button');
+                            btn.innerHTML = 'Set a new Timer';
+                            btn.style.cursor = 'pointer';
+                            btn.style.fontSize = '30px';
+                            btn.style.paddingLeft = '20px';
+                            btn.style.paddingRight = '20px';
+                            btn.style.paddingTop = '5px';
+                            btn.style.paddingBottom = '5px';
+                            document.body.appendChild(btn);
+                            btn.onclick = function() {
+                                window.location.reload()
+                            }
+            
+                }
+                }
+                let k = setInterval(up, 1000)
+                function tex() {
+                    if(text === 'TIME IS UP!') {
+                        clearInterval(k)
+                    }
+                }
+                setInterval(tex, 1000)
+                clearInterval(tex, 1000)
+            
+                    return false;
+                
+                }
+            
+            
+            })
+        </script>
+        <style>
+            @media (min-width: 1500px) {
+                body {
+                    font-size: 200px;
+                    margin: 10%;
+                    margin-left: 30%;
+                }
+                p {
+                    margin-left: 8%;
+                }
+                #shour, #sminute, #ssecond {
+                    width: 200px;
+                    height: 30px;
+                    font-size: 30px;
+                    
+                }
+                #set {              
+                    width: 280px; 
+                    height: 60px;
+                    font-size: 45px; 
+                    font-family:'Times New Roman', Times, serif;
+                    cursor:pointer; 
+                    margin-left: 19%;
+                
+
+                }
+
+            }
+
+            @media (max-width: 1499px) {
+                body {
+                    font-size: 150px;
+                    margin: 10%;
+                    margin-left: 29.5%;
+                }
+
+
+                #shour, #sminute, #ssecond {
+                    width: 125px;
+                    height: 25px;
+                    font-size: 25px;
+                    margin-left: 2.5%;
+
+                    
+                }
+
+                #set {              
+                    width: 210px; 
+                    height: 45px;
+                    font-size: 35px; 
+                    font-family:'Times New Roman', Times, serif;
+                    cursor:pointer; 
+                    margin-left: 21.5%;
+                
+
+                }
+
+            }
+            #shour, #sminute, #ssecond {
+                outline: none;
+            }
+
+            
+
+        </style>
+    </head>
+    <body>
+        <p></p>
+        <table id="tab">
+            <tr>
+                <td id="st">0</td>
+                <td id="hour">0</td>
+                <td id="nd">:0</td>
+                <td id="minute">0</td>
+                <td id="rd">:0</td>
+                <td id="second">0</td>
+            </tr>
+        </table>
+        <form action="su">
+            <input type="number" id="shour" placeholder="Hours" min="1">
+            <input type="number" id="sminute" placeholder="Minutes" min="1" max="59">
+            <input type="number" id="ssecond" autofocus placeholder="Seconds" min="1" max="59"><br>
+            <input type="submit" id="set" value="Set Timer">
+        </form>
+    </body>
+</html>
+
 
