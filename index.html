@@ -44,7 +44,37 @@
                         set.style.cursor = 'default';
                     }
                 }
-            
+                shour.onchange = function() {
+                    set.disabled = false;
+                    set.style.cursor = 'pointer';
+                    if (shour.value == 0) {
+                        shour.value = ''
+                    }
+                    if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
+                    set.disabled = true;
+                }
+                }
+                sminute.onchange = function() {
+                    set.disabled = false;
+                    set.style.cursor = 'pointer';
+                    if (sminute.value == 0) {
+                        sminute.value = '';
+                    }
+                    if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
+                    set.disabled = true;
+                }
+                }
+                ssecond.onchange = function() {
+                    set.disabled = false;
+                    set.style.cursor = 'pointer';
+                    if (ssecond.value == 0) {
+                        ssecond.value = ''
+                    }
+                    if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
+                    set.disabled = true;
+                }
+                }
+
                 form.onsubmit = function() {
                     hour = shour.value;
                     document.querySelector('#hour').innerHTML = hour;
@@ -247,7 +277,9 @@
                     cursor:pointer; 
                     margin-left: 30%;
                 }
-
+                #shour, #sminute, #ssecond {
+                    outline: none;
+                }
 
             
 
@@ -266,9 +298,9 @@
             </tr>
         </table>
         <form action="su">
-            <input type="number" id="shour" placeholder="Hours" min="1">
-            <input type="number" id="sminute" placeholder="Minutes" min="1" max="59">
-            <input type="number" id="ssecond" autofocus placeholder="Seconds" min="1" max="59"><br>
+            <input type="number" id="shour" placeholder="Hours" min="0">
+            <input type="number" id="sminute" placeholder="Minutes" min="0" max="59">
+            <input type="number" id="ssecond" autofocus placeholder="Seconds" min="0" max="59"><br>
             <input type="submit" id="set" value="Set Timer">
         </form>
     </body>
