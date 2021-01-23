@@ -205,6 +205,8 @@
                             btn.style.paddingBottom = '5px';
                             btn.style.fontFamily = "'Times New Roman', Times, serif";
                             document.body.appendChild(btn);
+                            let snd = new Audio('siren.mp3');
+                            snd.play();
                             btn.onclick = function() {
                             window.location.reload()
                             }
