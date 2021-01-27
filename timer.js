@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             snd.play();
                             snd.loop = true;
                             btn.onclick = function() {
-                            window.location.reload()
+                              window.location.reload()
                             }
             
 
