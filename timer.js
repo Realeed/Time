@@ -20,6 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         set.disabled = true;
                         set.style.cursor = 'default';
                     }
+                    if (shour.value != '') {
+                        document.querySelector('#hour').innerHTML = shour.value;
+                    } else {
+                        document.querySelector('#hour').innerHTML = 0;
+                    }
+                    if (shour.value > 9) {
+                        document.querySelector('#st').innerHTML = '';
+                    } else {
+                        document.querySelector('#st').innerHTML = '0';
+                    }
+                    if (shour.value > 99) {
+                        document.querySelector('#hour').innerHTML = '00';
+                        let al = () => {
+                            alert('Must be less than or equal to 99');
+                            document.querySelector('#shour').value = '';
+                        }
+                        setTimeout(al, 0);
+                    }
                 }
                 sminute.onkeyup = function() {
                     if (shour.value.length > 0 || sminute.value.length > 0 || ssecond.value.length > 0) {
@@ -28,6 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         set.disabled = true;
                         set.style.cursor = 'default';
+                    }
+                    if (sminute.value != '') {
+                        document.querySelector('#minute').innerHTML = sminute.value;
+                    } else {
+                        document.querySelector('#minute').innerHTML = 0;
+                    }
+                    if (sminute.value > 9) {
+                        document.querySelector('#nd').innerHTML = ':';
+                    } else {
+                        document.querySelector('#nd').innerHTML = ':0';
+                    }
+                    if (sminute.value > 59) {
+                        document.querySelector('#minute').innerHTML = '00';
+                        let al = () => {
+                            alert('Must be less than or equal to 59');
+                            document.querySelector('#sminute').value = '';
+                        }
+                        setTimeout(al, 0);
                     }
                 }
                 ssecond.onkeyup = function() {
@@ -38,6 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         set.disabled = true;
                         set.style.cursor = 'default';
                     }
+                    if (ssecond.value == 0) {
+                        document.querySelector('#ssecond').value = '';
+                    }
+                    if (ssecond.value != '' && ssecond.value != 0) {
+                        document.querySelector('#second').innerHTML = ssecond.value;
+                    } else {
+                        document.querySelector('#second').innerHTML = 0;
+                    }
+                    if (ssecond.value > 9) {
+                        document.querySelector('#rd').innerHTML = ':';
+                    } else {
+                        document.querySelector('#rd').innerHTML = ':0';
+                    }
+                    if (ssecond.value > 59) {
+                        document.querySelector('#second').innerHTML = '00';
+                        let al = () => {
+                            alert('Must be less than or equal to 59');
+                            document.querySelector('#ssecond').value = '';
+                        }
+                        setTimeout(al, 0);
+                    }
+
                 }
                 shour.onchange = function() {
                     set.disabled = false;
@@ -47,6 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
                     set.disabled = true;
+                    }
+                    if (shour.value != '') {
+                        document.querySelector('#hour').innerHTML = shour.value;
+                    } else {
+                        document.querySelector('#hour').innerHTML = 0;
+                    }
+                    if (shour.value > 9) {
+                        document.querySelector('#st').innerHTML = '';
+                    } else {
+                        document.querySelector('#st').innerHTML = '0';
                     }
                 }
                 sminute.onchange = function() {
@@ -58,6 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
                     set.disabled = true;
                     }
+                    if (sminute.value != '') {
+                        document.querySelector('#minute').innerHTML = sminute.value;
+                    } else {
+                        document.querySelector('#minute').innerHTML = 0;
+                    }
+                    if (sminute.value > 9) {
+                        document.querySelector('#nd').innerHTML = ':';
+                    } else {
+                        document.querySelector('#nd').innerHTML = ':0';
+                    }
+                    if (sminute.value > 59) {
+                        document.querySelector('#minute').innerHTML = '00';
+
+                    }
                 }
                 ssecond.onchange = function() {
                     set.disabled = false;
@@ -67,6 +149,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
                     set.disabled = true;
+                    }
+                    if (ssecond.value != '') {
+                        document.querySelector('#second').innerHTML = ssecond.value;
+                    } else {
+                        document.querySelector('#second').innerHTML = 0;
+                    }
+                    if (ssecond.value > 9) {
+                        document.querySelector('#rd').innerHTML = ':';
+                    } else {
+                        document.querySelector('#rd').innerHTML = ':0';
+                    }
+                    if (ssecond.value > 59) {
+                        document.querySelector('#second').innerHTML = '00';
                     }
                 }
 

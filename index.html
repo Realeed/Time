@@ -11,6 +11,7 @@
                 margin-top: 1.5%;
                 background-image: url('b1.jpg');
                 background-size: 100%;
+                overflow: hidden;
             }
             @media (min-width: 1500px) {
                 body {
@@ -80,7 +81,7 @@
             </tr>
         </table>
         <form action="su">
-            <input type="number" id="shour" placeholder="Hours" min="0">
+            <input type="number" id="shour" placeholder="Hours" min="0" max="99">
             <input type="number" id="sminute" placeholder="Minutes" min="0" max="59">
             <input type="number" id="ssecond" autofocus placeholder="Seconds" min="0" max="59"><br>
             <input type="submit" id="set" value="Set Timer">
