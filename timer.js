@@ -311,7 +311,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             btn.onclick = function() {
                               window.location.reload()
                             }
-            
+                            onkeypress = key => {
+                                if (key.code == 'Enter' || key.code == 'NumpadEnter' || key.code == 'KeyR') {
+                                    window.location.reload()
+                                }
+                            }
 
                 }
                 }
