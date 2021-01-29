@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.querySelector('#st').innerHTML = 0;
                     }
                     if (shour.value > 99) {
-                        document.querySelector('#hour').innerHTML = '00';
+                        document.querySelector('#st').innerHTML = '0';
+                        document.querySelector('#hour').innerHTML = 0;
                         let al = () => {
                             alert('Must be less than or equal to 99');
                             document.querySelector('#shour').value = '';
@@ -65,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.querySelector('#nd').innerHTML = ':0';
                     }
                     if (sminute.value > 59) {
-                        document.querySelector('#minute').innerHTML = '00';
+                        document.querySelector('#nd').innerHTML = ':0'
+                        document.querySelector('#minute').innerHTML = 0;
                         let al = () => {
                             alert('Must be less than or equal to 59');
                             document.querySelector('#sminute').value = '';
@@ -98,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.querySelector('#rd').innerHTML = ':0';
                     }
                     if (ssecond.value > 59) {
-                        document.querySelector('#second').innerHTML = '00';
+                        document.querySelector('#rd').innerHTML = ':0'
+                        document.querySelector('#second').innerHTML = 0;
                         let al = () => {
                             alert('Must be less than or equal to 59');
                             document.querySelector('#ssecond').value = '';
