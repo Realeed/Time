@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
                     set.disabled = true;
-                }
+                    }
                 }
                 sminute.onchange = function() {
                     set.disabled = false;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
                     set.disabled = true;
-                }
+                    }
                 }
                 ssecond.onchange = function() {
                     set.disabled = false;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (shour.value == '' && sminute.value == '' && ssecond.value == '') {
                     set.disabled = true;
-                }
+                    }
                 }
 
                 form.onsubmit = function() {
