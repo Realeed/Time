@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             let snd = new Audio('alarm.mp3');
                             snd.play();
                             snd.loop = true;
-                            btn.onclick = function() {
+                            btn.onclick = () => {
                               window.location.reload()
                             }
                             onkeypress = key => {
