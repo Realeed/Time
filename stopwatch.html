@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>StopWatch</title>
+        <script src="stopwatch.js"></script>
+        <link rel="icon" href="stop.jpg">
+
+        <style>
+            body {
+                user-select: none;
+                overflow: hidden;
+            }
+            @media (min-width: 1500px) {
+                body {
+                    font-size: 200px;
+                    margin: 18%;
+                    margin-left: 24%;
+                }
+                #stop, #start, #pause, #resume {
+                    width: 180px; 
+                    height: 65px;
+                    font-size: 35px; 
+                    font-family:'Times New Roman', Times, serif;
+                    cursor:pointer; 
+                }
+            }
+
+            @media (max-width: 1499px) {
+                body {
+                    font-size: 150px;
+                    margin: 10%;
+                    margin-left: 22.5%;
+                }
+                #stop, #start, #pause, #resume {
+                    width: 130px; 
+                    height: 50px;
+                    font-size: 30px; 
+                    font-family:'Times New Roman', Times, serif;
+                    cursor:pointer; 
+                }
+
+            }
+            #buts {
+                margin-left: 7%;
+                margin-top: 5%;
+
+            }
+            #stop {
+
+
+                background-color: rgb(250, 33, 33); 
+
+                color: rgba(255, 255, 255, 0.847);
+
+                outline: none;
+
+            }
+            #stop:hover {
+                background-color: rgb(133, 0, 0);
+            }
+            #start {
+
+
+
+
+                color: black;
+
+                outline: none;
+
+            }
+            #start:hover {
+                background-color: rgb(218, 218, 218);
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td id="h1">0</td>
+                <td id="hour">0</td>
+                <td id="st">:0</td>
+                <td id="minute">0</td>
+                <td id="nd">:0</td>
+                <td id="second">0</td>
+                <td id="rd">:0</td>
+                <td id="millisecond">0</td>
+            </tr>
+        </table>
+        <div id="buts">
+            <button id="resume">Resume</button>
+            <button id="pause">Pause</button>
+            <button id="stop" >Stop</button>
+            <button id="start" >Start</button>
+        </div>
+    </body>
+</html>
