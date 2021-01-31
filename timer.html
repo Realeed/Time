@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer</title>
+        <link rel = "icon" href = "watch.jpg">
+        <script src = "timer.js"></script>
+        <style>
+            body {
+                margin: auto;
+                width: 50%;
+                margin-top: 1.5%;
+                background-image: url('b1.jpg');
+                background-size: 100%;
+                overflow: hidden;
+                user-select: none;
+            }
+            @media (min-width: 1500px) {
+                body {
+                    font-size: 200px;
+
+                }
+                p {
+                    margin-left: auto;
+                }
+                #shour, #sminute, #ssecond {
+                    width: 200px;
+                    height: 30px;
+                    font-size: 30px;
+                    margin-left: auto;
+
+                }
+            }
+
+            @media (max-width: 1499px) {
+                body {
+                    font-size: 175px;
+                    margin-left: auto;
+                }
+                #shour, #sminute, #ssecond {
+                    width: 180px;
+                    height: 30px;
+                    font-size: 30px;
+                    margin-left: auto;
+
+                }
+                #tab {
+                    margin-left: 1%;
+                }
+
+
+            }
+
+            #set {             
+                    font-size: 38px;
+                    width: auto;
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                    font-family:'Times New Roman', Times, serif;
+                    cursor:pointer; 
+                    margin-left: 30%;
+                }
+                #shour, #sminute, #ssecond {
+                    outline: none;
+                }
+
+            
+
+        </style>
+    </head>
+    <body>
+
+        <table id="tab">
+            <tr>
+                <td id="st">0</td>
+                <td id="hour">0</td>
+                <td id="nd">:0</td>
+                <td id="minute">0</td>
+                <td id="rd">:0</td>
+                <td id="second">0<td>
+            </tr>
+        </table>
+        <form action="su">
+            <input type="number" id="shour" placeholder="Hours" min="0" max="99">
+            <input type="number" id="sminute" placeholder="Minutes" min="0" max="59">
+            <input type="number" id="ssecond" autofocus placeholder="Seconds" min="0" max="59"><br>
+            <input type="submit" id="set" value="Set Timer">
+        </form>
+    </body>
+</html>
+
+
