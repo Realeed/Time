@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let stop = document.querySelector('#stop');
     let pause = document.querySelector('#pause');
     let resume = document.querySelector('#resume');
+    if (!localStorage.getItem('milliseconds')) {
+        localStorage.setItem('milliseconds', 0);
+        localStorage.setItem('seconds', 0);
+        localStorage.setItem('minutes', 0);
+        localStorage.setItem('hourss', 0);
+    }
     millisecond = localStorage.getItem('milliseconds');
     document.querySelector('#millisecond').innerHTML = millisecond;
     second = localStorage.getItem('seconds');
@@ -104,10 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(sec, 1000);
         setInterval(min, 60000);
         setInterval(hours, 3600000);
-        localStorage.setItem('milliseconds', 0);
-        localStorage.setItem('seconds', 0);
-        localStorage.setItem('minutes', 0);
-        localStorage.setItem('hourss', 0);
         resume.disabled = true;
         pause.disabled = false;
         pause.style.cursor = 'pointer';
