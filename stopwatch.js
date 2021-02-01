@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('minutes', 0);
         localStorage.setItem('hourss', 0);
     }
+    stop.onclick = () => {
+        localStorage.setItem('milliseconds', 0);
+        localStorage.setItem('seconds', 0);
+        localStorage.setItem('minutes', 0);
+        localStorage.setItem('hourss', 0);
+        window.location.reload();
+    }
     millisecond = localStorage.getItem('milliseconds');
     document.querySelector('#millisecond').innerHTML = millisecond;
     second = localStorage.getItem('seconds');
@@ -34,10 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#h1').innerHTML = '';
     }
     stop.style.backgroundColor = 'grey';
-    stop.style.cursor = 'pointer';
-    pause.disabled = true;
-    pause.style.cursor = 'default';
-    resume.style.cursor = 'pointer';
+    if (localStorage.getItem('milliseconds') == 0 && localStorage.getItem('seconds') == 0 && localStorage.getItem('minutes') == 0 && localStorage.getItem('hourss') == 0) {
+        resume.disabled = true;
+        resume.style.cursor = 'default';
+        pause.disabled = true; 
+        pause.style.cursor = 'default';
+        stop.disabled = true;
+        stop.style.cursor = 'default';
+    } else {
+        start.disabled = true;
+        start.style.backgroundColor = 'grey';
+        start.style.color = '#ffffffd8';
+        start.style.cursor = 'default';
+        stop.style.backgroundColor = '#fa2121';
+        pause.disabled = true;
+        pause.style.cursor = 'default'
+    }
     function millisec() {
         
         millisecond++;
@@ -132,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.reload();
 
     }
+
     pause.onclick = () => {
         clearInterval(a);
         clearInterval(b);
@@ -141,11 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('seconds', second);
         localStorage.setItem('minutes', minute);
         localStorage.setItem('hourss', hour);
-        window.location.reload()
+        window.location.reload();
     }    
-
-        }
-
+    }
     resume.onclick = () => {
         let a = setInterval(millisec, 10);
         let b = setInterval(sec, 1000);
@@ -183,14 +201,11 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('seconds', second);
         localStorage.setItem('minutes', minute);
         localStorage.setItem('hourss', hour);
-        window.location.reload()
-        
+        window.location.reload()       
     }   
-
     }
-
-
- })
+    
+})
 
 
 
