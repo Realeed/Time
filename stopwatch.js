@@ -106,10 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     start.onclick = () => {
-        setInterval(millisec, 10);
-        setInterval(sec, 1000);
-        setInterval(min, 60000);
-        setInterval(hours, 3600000);
+        let a = setInterval(millisec, 10);
+        let b = setInterval(sec, 1000);
+        let c = setInterval(min, 60000);
+        let d = setInterval(hours, 3600000);
         resume.disabled = true;
         pause.disabled = false;
         pause.style.cursor = 'pointer';
@@ -119,10 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
         start.style.cursor = 'default';
         stop.disabled = false;
         stop.style.backgroundColor = '#fa2121';
-        stop.style.cursor = 'pointer';     
-
-        }
+        stop.style.cursor = 'pointer'; 
         stop.onclick = () => {
+            clearInterval(a);
+            clearInterval(b);
+            clearInterval(c);
+            clearInterval(d);
             localStorage.setItem('milliseconds', 0);
             localStorage.setItem('seconds', 0);
             localStorage.setItem('minutes', 0);
@@ -131,17 +133,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
     pause.onclick = () => {
+        clearInterval(a);
+        clearInterval(b);
+        clearInterval(c);
+        clearInterval(d);
         localStorage.setItem('milliseconds', millisecond);
         localStorage.setItem('seconds', second);
         localStorage.setItem('minutes', minute);
         localStorage.setItem('hourss', hour);
         window.location.reload()
-    }
+    }    
+
+        }
+
     resume.onclick = () => {
-        setInterval(millisec, 10);
-        setInterval(sec, 1000);
-        setInterval(min, 60000);
-        setInterval(hours, 3600000);
+        let a = setInterval(millisec, 10);
+        let b = setInterval(sec, 1000);
+        let c = setInterval(min, 60000);
+        let d = setInterval(hours, 3600000);
         pause.disabled = false;
         resume.disabled = true;
         resume.style.cursor = 'default';
@@ -153,6 +162,30 @@ document.addEventListener('DOMContentLoaded', () => {
         stop.disabled = false;
         stop.style.backgroundColor = '#fa2121';
         stop.style.cursor = 'pointer';
+        stop.onclick = () => {
+            clearInterval(a);
+            clearInterval(b);
+            clearInterval(c);
+            clearInterval(d);
+            localStorage.setItem('milliseconds', 0);
+            localStorage.setItem('seconds', 0);
+            localStorage.setItem('minutes', 0);
+            localStorage.setItem('hourss', 0);
+            window.location.reload();
+
+    }
+    pause.onclick = () => {
+        clearInterval(a);
+        clearInterval(b);
+        clearInterval(c);
+        clearInterval(d);
+        localStorage.setItem('milliseconds', millisecond);
+        localStorage.setItem('seconds', second);
+        localStorage.setItem('minutes', minute);
+        localStorage.setItem('hourss', hour);
+        window.location.reload()
+        
+    }   
 
     }
 
