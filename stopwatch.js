@@ -104,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(sec, 1000);
         setInterval(min, 60000);
         setInterval(hours, 3600000);
+        localStorage.setItem('milliseconds', 0);
+        localStorage.setItem('seconds', 0);
+        localStorage.setItem('minutes', 0);
+        localStorage.setItem('hourss', 0);
         resume.disabled = true;
         pause.disabled = false;
         pause.style.cursor = 'pointer';
